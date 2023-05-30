@@ -364,7 +364,8 @@ function CreateReturn() {
                                                             <td>{orderItem.quantity}</td>
                                                             <td>{orderItem.itemName}</td>
                                                             <td>{orderItem.description}</td>
-                                                            <td>${(orderItem.amount * orderItem.quantity).toFixed(2)}</td>
+                                                            <td>${(orderItem.amount * orderItem.quantity).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                                                            {/* <td>${(orderItem.amount * orderItem.quantity).toFixed(2)&& toLocaleString("en-US")}</td> */}
                                                         </tr>
                                                     );
                                                 })
@@ -425,7 +426,8 @@ function CreateReturn() {
                                                                             </td>
                                                                             <td>{orderItem.itemName}</td>
                                                                             <td>{orderItem.description}</td>
-                                                                            <td>${(orderItem.amount * orderItem.quantity).toFixed(2)}</td>
+                                                                            <td>${(orderItem.amount * orderItem.quantity).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                                                                            {/* <td>${(orderItem.amount * orderItem.quantity).toFixed(2)}</td> */}
                                                                         </tr>
 
                                                                     )
