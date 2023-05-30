@@ -1,0 +1,25 @@
+#sidebar {
+    background: #FFF;
+    border: 2px solid #EEF1F6;
+    transition: all 0.3s;
+    margin-right: 4%;
+    height: 100vh;
+}
+
+#sidebar ul li a {
+    padding: 7px 10px 7px 10px;
+    font-size: 18px;
+    display: block;
+    color: #868686;
+    font-weight: 500;
+}
+
+#sidebar ul li.active>a {
+    color: #58AD63;
+}
+
+.navbar-grouping{
+    font-size: 12px;
+    color: #868686;
+    padding-top: 18px;
+}

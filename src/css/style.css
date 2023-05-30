@@ -1,0 +1,156 @@
+/* Color */
+.gradient-color{ background: linear-gradient(92.85deg, #0092B8 -8.66%, rgba(41, 166, 109, 0.8) 82.61%); } 
+
+.w-6{ width: 6%; }
+.w-10{ width: 10%; }
+
+
+/* Title Icon */
+.title-icon {
+  width: 30px;
+  height: 30px;
+  padding: 3px 3px 3px 7px;
+  font-size: 15px;
+}
+
+/* Stepper CSS */
+.circle-step {
+  border-radius: 30px;
+  background-color: #242424;
+  font-size: 15px;
+  margin-left: 10px;
+  color: #FFF;
+  text-align: center;
+  padding: 6px;
+  width: 35px;
+  height: 35px;
+}
+
+
+.box>.steps>ul>li.done>div>.circle-step {
+  color: #fff;
+  background: #58AD63;
+}
+
+.box>.steps>ul>li.done>div>div>h6 {
+  color: #58AD63;
+}
+
+.box>.steps>ul>li.active>div>.circle-step {
+  color: #fff;
+  background: #1F83DF;
+}
+
+.box>.steps>ul>li.active>div>div>h6 {
+  color: #1F83DF;
+}
+
+
+.line-active {
+  border: 1px solid #1F83DF;
+  width: 40px;
+  height: 1px;
+  margin-right: 10px;
+  transform: translateY(2em);
+}
+
+.line-inactive {
+  border: 1px dashed #838383;
+  width: 40px;
+  height: 1px;
+  margin-right: 10px;
+  transform: translateY(2em);
+}
+
+.line-done {
+  border: 1px solid #58AD63;
+  width: 40px;
+  height: 0px;
+  margin-right: 10px;
+  transform: translateY(2em);
+}
+/* Company Name Icon */
+
+.avatar {
+  border-radius: 30px;
+  background-color: #242424;
+  font-size: 22px;
+  color: #FFF;
+  text-align: center;
+  padding: 10px;
+  width: 55px;
+  height: 55px;
+}
+
+/* Breadcrumb Arrow */
+.breadcrumb-arrow{
+  --bs-breadcrumb-divider: '>';
+}
+
+
+.creativeAnd>h5::before {
+  width: 100px;
+  background-color: #242424;
+  height: 12px;
+}
+
+
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(92.85deg, #0092B8 -8.66%, rgba(41, 166, 109, 0.8) 82.61%);
+  color: white;
+  border: 0;
+}
+
+.navbar {
+  background: linear-gradient(92.83deg, #0092B8 -8.65%, rgba(41, 166, 109, 0.8) 85.41%);
+}
+
+.mx-2 {
+  margin-right: .5rem !important;
+  margin-left: 2.5rem !important;
+}
+
+/*Search box*/
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.mx-3 {
+  margin-right: -2rem !important;
+  margin-left: .5rem !important;
+}
+
+
+/*Create Element */
+
+.edittable {
+  width: 100%;
+  /* background-color: #0092B8; */
+
+}
+
+.tbb {
+  border: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.arrow {
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  border: 3px solid black;
+  padding: -1px;
+  border: none;
+  font-size: 25px;
+}
+
+
+

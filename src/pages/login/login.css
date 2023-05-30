@@ -1,0 +1,7 @@
+.image{
+    background-image: url('./left.png');
+    height: 100vh;
+    padding: 7%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
