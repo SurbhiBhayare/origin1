@@ -45,6 +45,8 @@ function CreateReturn() {
         localStorage.setItem("proceedData", JSON.stringify(returnData))
         localStorage.setItem("updatedData", JSON.stringify(updatedData))
         localStorage.setItem("orgData", JSON.stringify(data))
+       localStorage.setItem("updatedReturnData",JSON.stringify(updatedReturnData))
+        
 
         navigate("/return");
 
@@ -61,6 +63,7 @@ function CreateReturn() {
     useEffect(() => {
         const retData = JSON.parse(localStorage.getItem('proceedData'));
         const updData = JSON.parse(localStorage.getItem('updatedData'));
+        const updatedReturnData = JSON.parse(localStorage.getItem('updatedReturnData'))
         setReturnData(retData);
         //debugger
         // Check if data is null (indicating first visit to the page)
@@ -237,8 +240,44 @@ function CreateReturn() {
             }
         }
     }
-
-
+    //Select All Button of Line level detail 
+   
+    function handleSelectAll() {
+    const updatedData = data.map((order) => {
+      const updatedOrderItems = order.orderItems.map((item) => {
+        const { quantity } = item;
+        if (quantity > 0) {
+          return { ...item, quantity: 0 };
+        }
+        return item;
+      });
+      return { ...order, orderItems: updatedOrderItems };
+    });
+  
+    const selectedRow = data.flatMap((order) =>
+      order.orderItems.filter((item) => item.quantity > 0)
+    );
+    setButtonEnabled(true);
+    setReturnData((prevReturnData) => {
+      const initialData = Array.isArray(prevReturnData) ? prevReturnData : [];
+      const mergedData = initialData.map((existingRow) => {
+        const selectedRowMatch = selectedRow.find((row) => row.id === existingRow.id);
+        if (selectedRowMatch) {
+          return { ...existingRow, quantity: existingRow.quantity + selectedRowMatch.quantity };
+        }
+        return existingRow;
+      });
+      const newRows = selectedRow.filter((row) => !initialData.some((existingRow) => existingRow.id === row.id));
+      //return [...mergedData, ...newRows];
+      return [...mergedData, ...newRows];
+      //localStorage.setItem("returnData", JSON.stringify(updatedReturnData)); // Store returnData in local storage
+     //return updatedReturnData;
+    });
+  
+    setData(updatedData);
+    setUpdatedData(updatedData);
+  }
+  
 
     return (
         <div className="returnDetails">
@@ -336,7 +375,7 @@ function CreateReturn() {
                         <table className="table table-striped">
                             <thead>
                                 <tr>
-                                    <th className="col-md-1 tablehead"><button type="button" className="btn btn-success btn-sm" style={{ width: '100px' }}>Select All</button></th>
+                                    <th className="col-md-1 tablehead"><button type="button" className="btn btn-success btn-sm" style={{ width: '100px' }} onClick={handleSelectAll}>Select All</button></th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Part #</th>
                                     <th scope="col">Description</th>
@@ -375,7 +414,7 @@ function CreateReturn() {
 
                             </tbody>
                             <tbody >
-
+                            {returnData && returnData.length > 0 && (
                                 <td colspan="12" >
                                     {/* <div className="row justify-content-center shadow-sm p-3 mt-2 bg-body rounded border">*/}
                                     <div className="row justify-content-center shadow-sm p-3 mt-2 bg-body rounded border">
@@ -396,7 +435,7 @@ function CreateReturn() {
                             </div>*/}
                                         </div>
                                         {
-                                            returnData && (
+                                            returnData &&  (
                                                 <table className="table table-striped">
                                                     <thead>
                                                         <tr>
@@ -442,6 +481,7 @@ function CreateReturn() {
 
                                     </div>
                                 </td>
+                            )}
                             </tbody>
                         </table>
                     </div>

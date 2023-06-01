@@ -220,7 +220,7 @@ function ReturnDetails() {
                     <td className="col-md-1">{item.quantity}</td>
                     <td>{item.itemName}</td>
                     <td>{item.description}</td>
-                    <td>${(item.amount*item.quantity).toLocaleString("en-US")}</td>
+                    <td>${(item.amount * item.quantity).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                     <td><a onClick={() => toggle(id)} className="border-none text-dark">{selected == id ? <i class="bi bi-caret-down-square"></i> : <i class="bi bi-caret-right-square"></i>}</a></td>
                   </tr>
                   <>

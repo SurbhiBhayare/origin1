@@ -90,7 +90,7 @@ const toggle = (id) => {
     data.forEach((item) => {
      total +=  (item.amount*item.quantity);
     });
-    return total.toFixed(2);
+    return total.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   };
 
   
@@ -218,7 +218,7 @@ const toggle = (id) => {
 
                                     <td className="text-danger">-$21</td>
 
-                                    <td>${(item.amount*item.quantity).toLocaleString("en-US")}</td>
+                                    <td>${(item.amount * item.quantity).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
 
                                     <td><a onClick={() => toggle(id)} className="border-none text-dark">{selected == id ? <i class="bi bi-caret-down-square"></i> : <i class="bi bi-caret-right-square"></i>}</a></td>
 

@@ -20,7 +20,7 @@ function ContactDetails({ data }) {
     if (storedName) setName(storedName);
     if (storedMail) setMail(storedMail);
     if (storedPhone) setPhone(storedPhone);
-  }, []);
+  }, [data]);
 
   const SameAsPo = (e) => {
     if (e.target.checked) {

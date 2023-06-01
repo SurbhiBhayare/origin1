@@ -24,6 +24,18 @@ function SearchOrder() {
         localStorage.clear();
       };
       
+
+      const isFormValid = () => {
+        const isZipCodeFilled = zipCode.trim() !== "";
+        const isCustomerIdFilled = customerId.trim() !== "";
+        const isPoNumberFilled = poNumber.trim() !== "";
+        const isInvoiceNoFilled = invoiceNo.trim() !== "";
+    
+        return (
+          (isZipCodeFilled || isCustomerIdFilled) &&
+          (isPoNumberFilled || isInvoiceNoFilled)
+        );
+      };
     
     return (
         <div className="searchOrder">
@@ -72,10 +84,22 @@ function SearchOrder() {
                 </div>
             </div>
             <div className="text-center">
-                <Link to={`/create?zipcode=${zipCode}&poNo=${poNumber}`}>
-                    <input type="button" value="Retrieve" className="px-4 py-2 mx-2 btn btn-primary" onClick={handleRetrieve} />
-                </Link>
-
+                {/* <Link to={`/create?zipcode=${zipCode}&poNo=${poNumber}`}>
+                    <input type="button" value="Retrieve" className="px-4 py-2 mx-2 btn btn-primary" onClick={handleRetrieve}  disabled={!isFormValid()} />
+                </Link> */}
+                 
+            {isFormValid() ? (
+            <Link to={`/create?zipcode=${zipCode}&poNo=${poNumber}`} style={{ textDecoration: "none" }}>
+                     <Button variant="primary" className="px-4 py-2 mx-2">
+                         Retrieve
+                     </Button>
+            </Link>
+             ) : (
+            <Button variant="primary" className="px-4 py-2 mx-2" disabled>
+              Retrieve
+            </Button>
+             )}
+        
             </div>
         </div>
 
